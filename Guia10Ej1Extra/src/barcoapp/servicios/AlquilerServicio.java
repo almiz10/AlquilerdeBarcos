@@ -27,7 +27,7 @@ public class AlquilerServicio {
         Calendar fechafin = new GregorianCalendar(2022, 7, 20);
 
         Alquiler nuevoAlquiler = new Alquiler();
-        nuevoAlquiler.setBarco(barco);
+        nuevoAlquiler.setBarco(elegirBarco());
         nuevoAlquiler.setDocumento(28773804);
         nuevoAlquiler.setNombre("dalmo");
         nuevoAlquiler.setPosicionDeAmarre(3);
@@ -37,7 +37,7 @@ public class AlquilerServicio {
         return nuevoAlquiler;
     }
 
-    public Barco menuInicio() {
+    public Barco elegirBarco() {
         System.out.println("Ingrese el tipo de barco\n");
         System.out.println("1. Velero");
         System.out.println("2. Barco a Motor");
@@ -101,12 +101,5 @@ public class AlquilerServicio {
         return yate;
     }
       
-      public Double calcularPrecio(Calendar fechaInicio, Calendar fechaFin, Double eslora){
-          Calendar c = Calendar.getInstance();
-          c.setTimeInMillis(fechaFin.getTime().getTime()-fechaInicio.getTime().getTime());
-          
-          Double precio = (c.get(Calendar.DAY_OF_YEAR))*eslora;
-          return precio;
-}
       
 }

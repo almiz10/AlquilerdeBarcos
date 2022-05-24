@@ -11,36 +11,29 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-/**
- *
- * @author Dalmiro
- */
 public class BarcoApp {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     
     public static void main(String[] args) {
         // creamos un alquier
-        Double aux = 0d;
+        Double aux=0d;
         AlquilerServicio alquilerServicio = new AlquilerServicio();
         
-        if (alquilerServicio.menuInicio() instanceof Velero) {
-            Velero velero = alquilerServicio.crearVelero();
-            aux= 12d;
-        if (alquilerServicio.menuInicio() instanceof BarcoMotor) {
-            BarcoMotor barcoMotor = alquilerServicio.crearBarcoAMotor();
-            aux= 12d;
-        if (alquilerServicio.menuInicio() instanceof Yate) {
-            Yate yate = alquilerServicio.crearYateDeLujo();
-            aux= 12d;
-        } 
+         
         
           Alquiler alquiler = alquilerServicio.crearAlquiler(); // creamos un objeto alquiler que va a tener los datos fecha inicio, fin, eslora, etc
-          Double precio = alquilerServicio.calcularPrecio(alquiler.getFechaAlquiler(), alquiler.getFechaDevolucion(), alquiler.getBarco().getEslora());
+          //chequeamos de qué tipo es el barco creado y llamamos al metodo mostrar precio de ese tipo
+          
+          if (alquiler.getBarco() instanceof Velero) {
+            Velero velero = new Velero();
+            velero.setNroMastiles(alquiler.getBarco().);
+              aux = velero.mostrarPrecio(alquiler.getFechaAlquiler(), alquiler.getFechaDevolucion(), alquiler.getBarco().getEslora(), alquiler.getBarco());
+            
+        }
+          
           System.out.println("El precio del alquiler es :\n");
-          System.out.println(precio+aux);
+          System.out.println(aux);
           
     
 }

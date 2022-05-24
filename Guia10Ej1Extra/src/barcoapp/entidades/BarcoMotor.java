@@ -2,7 +2,7 @@ package barcoapp.entidades;
 
 
 public class BarcoMotor extends Barco {
-    private Integer potenciaCV;  
+    protected Integer potenciaCV;  
 
     public BarcoMotor(Integer potenciaCV, String matricula, Double eslora, Integer añoFabricacion) {
         super(matricula, eslora, añoFabricacion);

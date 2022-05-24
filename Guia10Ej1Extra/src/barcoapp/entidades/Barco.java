@@ -1,9 +1,12 @@
 package barcoapp.entidades;
 
+import java.util.Calendar;
+
 public class Barco {
-protected String matricula;
-protected Double eslora;
-protected Integer añoFabricacion;
+
+    protected String matricula;
+    protected Double eslora;
+    protected Integer añoFabricacion;
 
     public Barco(String matricula, Double eslora, Integer añoFabricacion) {
         this.matricula = matricula;
@@ -36,6 +39,14 @@ protected Integer añoFabricacion;
 
     public void setAñoFabricacion(Integer añoFabricacion) {
         this.añoFabricacion = añoFabricacion;
+    }
+
+    public Double mostrarPrecio(Calendar fechaInicio, Calendar fechaFin, Double eslora) {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(fechaFin.getTime().getTime() - fechaInicio.getTime().getTime());
+
+        Double precio = (c.get(Calendar.DAY_OF_YEAR)) * eslora;
+        return precio;
     }
 
 }
